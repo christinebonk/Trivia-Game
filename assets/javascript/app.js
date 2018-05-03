@@ -31,6 +31,7 @@ var questions = [
 //Display question
 var displayQuestion = function(currentQuestion) {
 	$("h2").text(questions[currentQuestion].question);
+	$("form").empty();
 	for(letter in questions[currentQuestion].answers) {
 		$("form").append("<label><input type='radio' name='questions' value=" + letter + ">" + questions[currentQuestion].answers[letter] + "</label>");
 		}
@@ -41,6 +42,14 @@ displayQuestion(1);
 
 //Question times out 
 
+var displayResult = function(result) {
+	if(result) {
+		$("form").html("You did it!");
+	} else {
+		$("form").html("You didn't do it!");
+	}
+}
+
 //Lose screen 
 
 
@@ -48,11 +57,14 @@ displayQuestion(1);
 var checkAnswer = function(userGuess,correctGuess) {
 	if (userGuess === correctGuess) {
 		RightCount++;
+		result = true;
 		console.log("right")
 	} else {
 		WrongCount++;
+		result = false;
 		console.log("wrong");
 	}
+	displayResult(result);
 }
 
 //Collect user response
@@ -61,3 +73,5 @@ $("form").on("click", "#submit", function() {
 	checkAnswer(userGuess,questions[1].correctAnswer);
 
 })
+
+//Progress bar
