@@ -4,6 +4,7 @@ var RightCount //Counts number of questions user gets correct
 var WrongCount //Counts number of questions user gets wrong
 var questionNumber = 0;
 var result 
+var timer
 
 //My questions
 var questions = [
@@ -93,9 +94,10 @@ function displayResult(result) {
 
 	//Add question number
 	questionNumber += 1; 
-	return
 	//Display Next Question
-	setTimeout(function() { displayQuestion(questionNumber) },5000)
+	if (questionNumber < questions.length) {
+		setTimeout(function() { displayQuestion(questionNumber) },5000)
+	} 
 }
 
 //Display question
@@ -115,7 +117,7 @@ function displayQuestion(currentQuestion) {
 	$("form").prepend("<input id='submit' type='submit' value='Submit'>");
 
 	//Timeout
-	setTimeout(displayResult,5000);
+	timer = setTimeout(displayResult,5000);
 }
 
 //Call first question on load
@@ -140,6 +142,7 @@ var checkAnswer = function(userGuess,correctGuess) {
 $("form").on("click", "#submit", function() {
 	var userGuess = $("input[name=questions]:checked").val();
 	checkAnswer(userGuess,questions[questionNumber].correctAnswer);
+	clearTimeout(timer);
 
 })
 
