@@ -1,1 +1,70 @@
-.quiz-button 
+body {
+	background: gra;
+}
+
+
+.quiz-button {
+
+}
+
+/*Footer*/
+
+footer {
+	display: flex;
+	justify-content: center;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 20%;
+}
+.ball {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: black;
+	margin: 30px;
+}
+
+
+
+
+
+/*Flip Cards*/
+
+	#container {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		justify-content: center;
+		position: relative;
+		perspective: 1000px;
+		margin: 20px;
+	}
+
+	.flip-card-front, .flip-card-back {
+		height: 400px;
+		width: 400px;
+		position: absolute;
+		backface-visibility: hidden;
+		transition: transform 1s;
+		padding: 20px;
+		text-align: center;
+	}
+
+	.flip-card-front {
+		background-color: red;
+	}
+
+	.flip-card-back {
+		background-color: green;
+		transform: rotateY(180deg);
+	}
+
+	.flipfront {
+		transform: rotateY(-180deg);
+	}
+
+	.flipback {
+		transform: rotateY(0deg);
+	}
