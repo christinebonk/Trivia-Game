@@ -5,6 +5,7 @@ var WrongCount //Counts number of questions user gets wrong
 var questionNumber = 0;
 var result 
 var timer
+var number = 10;
 
 //My questions
 var questions = [
@@ -117,7 +118,18 @@ function displayQuestion(currentQuestion) {
 	$("form").prepend("<input id='submit' type='submit' value='Submit'>");
 
 	//Timeout
-	timer = setTimeout(displayResult,5000);
+	timer = setInterval(decrement,1000);
+
+	function decrement() {
+		number--;
+		console.log(number)
+		$("#counter").html(number);
+
+		if (number == 0) {
+			clearTimeout(timer);
+			displayResult();
+		}
+	}
 }
 
 //Call first question on load
