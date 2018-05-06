@@ -166,7 +166,9 @@ input[type="submit"]:hover {
 	height: 100%;
 	width: 100%;
 	position: absolute;
+	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
+	-webkit-transition: transform 1s;
 	transition: transform 1s;
 	padding: 40px 100px;
 	text-align: center;
@@ -188,10 +190,12 @@ input[type="submit"]:hover {
 }
 
 .flipfront {
+	-webkit-transform: rotateY(-180deg);
 	transform: rotateY(-180deg);
 }
 
 .flipback {
+	-webkit-transform: rotateY(0deg);
 	transform: rotateY(0deg);
 }
 
