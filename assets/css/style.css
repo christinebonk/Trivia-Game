@@ -4,6 +4,8 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
+/*Page Styles*/
+
 html {
 	font-family: 'Saira', sans-serif;
 	background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url(../images/background.png) ;
@@ -89,7 +91,6 @@ footer {
 	justify-content: center;
 	align-items: center;
 	height: 450px;
-
 }
 
 h3 {
@@ -128,7 +129,6 @@ label {
 	padding: 15px;
 }
 
-
 input[type="submit"] {
 	background: white;
 	border: 2px solid #0052cc;
@@ -150,51 +150,50 @@ input[type="submit"]:hover {
 	color: white;
 }
 
-
 /*Flip Cards*/
 
-	#contained {
-		height: 400px;
-		width: 50%;
-		position: relative;
-		perspective: 1000px;
-		margin: 20px;
-		margin-right: 100px;
-	}
+#contained {
+	height: 400px;
+	width: 50%;
+	position: relative;
+	perspective: 1000px;
+	margin: 20px;
+	margin-right: 100px;
+}
 
-	.flip-card-front, .flip-card-back {
-		border-radius: 20px;
-		height: 100%;
-		width: 100%;
-		position: absolute;
-		backface-visibility: hidden;
-		transition: transform 1s;
-		padding: 40px 100px;
-		text-align: center;
-	}
+.flip-card-front, .flip-card-back {
+	border-radius: 20px;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	backface-visibility: hidden;
+	transition: transform 1s;
+	padding: 40px 100px;
+	text-align: center;
+}
 
-	.flip-card-front {
-		background-color: #cc0000;
-	}
+.flip-card-front {
+	background-color: #cc0000;
+}
 
-	.flip-card-back {
-		background-color: #0052cc;
-		transform: rotateY(180deg);
-		display: flex;
-		justify-content: center;
-		color: white;
-		font-size: 20px;
-		align-items: center;
-		flex-direction: column;
-	}
+.flip-card-back {
+	background-color: #0052cc;
+	transform: rotateY(180deg);
+	display: flex;
+	justify-content: center;
+	color: white;
+	font-size: 20px;
+	align-items: center;
+	flex-direction: column;
+}
 
-	.flipfront {
-		transform: rotateY(-180deg);
-	}
+.flipfront {
+	transform: rotateY(-180deg);
+}
 
-	.flipback {
-		transform: rotateY(0deg);
-	}
+.flipback {
+	transform: rotateY(0deg);
+}
 
 /*Media Queries*/
 
@@ -210,9 +209,11 @@ input[type="submit"]:hover {
 }
 
 @media only screen and (max-width: 700px) {
+
 	h1 {
 		font-size: 40px;
 	}
+
 	main {
 		flex-wrap: wrap;
 	}
@@ -237,5 +238,5 @@ input[type="submit"]:hover {
 	width: 20px;
 	height: 20px;
 	margin: 30px 10px;
-}
+	}
 }

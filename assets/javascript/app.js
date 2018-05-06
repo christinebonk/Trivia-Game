@@ -1,11 +1,11 @@
 
-//My variables
-var RightCount = 0 //Counts number of questions user gets correct
-var WrongCount = 0 //Counts number of questions user gets wrong
+//My global variables
+var rightCount = 0 //Counts number of questions user gets correct
+var wrongCount = 0 //Counts number of questions user gets wrong
 var questionNumber = 0; //Holds current question
 var result //Holds result
 var timer //Holds timer
-var number = 10; //Timer humber
+var number = 10; //Timer number
 var timeout = false; //Tracks whether time is up for user
 
 //My questions
@@ -100,9 +100,9 @@ function displayResult(result) {
 	$("form").empty();
 	$("#results").empty();
 
-	//Display result
+	//Display result and answer
 	if(timeout) {
-		WrongCount++;
+		wrongCount++;
 
 		$("#results").append("Time's Up! Sorry the right answer is " + questions[questionNumber].response);
 	} else if(result) {
@@ -125,28 +125,26 @@ function displayResult(result) {
 		setTimeout(function() { displayQuestion(questionNumber) },5000)
 	} else {
 
-		
 	//Show final result
 	var finalResult = function() {
 	$("#questions").removeClass("flipfront");
 	$("#results").removeClass("flipback");
 
 	$("h2").text("Your Result!");
-	$("form").append("<h4>Correct: " + RightCount + "</h4>");
-	$("form").append("<h4>Wrong: " + WrongCount + "</h4>");
+	$("form").append("<h4>Correct: " + rightCount + "</h4>");
+	$("form").append("<h4>Wrong: " + wrongCount + "</h4>");
 	var restartButton = $("<button onclick='restart()'>");
 	restartButton.html("Restart");
 	$("form").append(restartButton);
 	}
 
 	setTimeout(finalResult,5000);
-
 	}
 }
 
 function restart() {
-	RightCount = 0 //Counts number of questions user gets correct
-	WrongCount = 0 //Counts number of questions user gets wrong
+	rightCount = 0 //Counts number of questions user gets correct
+	wrongCount = 0 //Counts number of questions user gets wrong
 	questionNumber = 0; //Holds current question
 
 	displayQuestion(questionNumber);
@@ -201,11 +199,11 @@ displayQuestion(questionNumber);
 //Determine if user response is right
 var checkAnswer = function(userGuess,correctGuess) {
 	if (userGuess === correctGuess) {
-		RightCount++;	
+		rightCount++;	
 		result = true;
 		console.log("right")
 	} else {
-		WrongCount++;
+		wrongCount++;
 		result = false;
 		console.log("wrong");
 	}
