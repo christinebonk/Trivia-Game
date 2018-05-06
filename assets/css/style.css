@@ -13,8 +13,6 @@ img {
 	max-height: 100%;
 }
 
-
-
 h1 {
 	vertical-align: text-top;
 	font-size: 60px;
@@ -25,6 +23,12 @@ h1 {
 main {
 	display: flex;
 	justify-content: flex-end;
+}
+
+h4 {
+	color: white;
+	font-size: 30px;
+	margin: 10px 0px;
 }
 
 /*Footer*/

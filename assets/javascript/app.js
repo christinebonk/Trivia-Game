@@ -1,11 +1,12 @@
 
 //My variables
-var RightCount //Counts number of questions user gets correct
-var WrongCount //Counts number of questions user gets wrong
-var questionNumber = 0;
-var result 
-var timer
-var number = 10;
+var RightCount = 0 //Counts number of questions user gets correct
+var WrongCount = 0 //Counts number of questions user gets wrong
+var questionNumber = 0; //Holds current question
+var result //Holds result
+var timer //Holds timer
+var number = 10; //Timer humber
+var timeout = false; //Tracks whether time is up for user
 
 //My questions
 var questions = [
@@ -94,7 +95,10 @@ function displayResult(result) {
 	$("#results").empty();
 
 	//Display result
-	if(result) {
+	if(timeout) {
+		WrongCount++;
+		$("#results").append("Time's Up");
+	} else if(result) {
 		$("#results").append("That's correct!");
 	} else if(!result) {
 		$("#results").html("Wrong");
@@ -102,13 +106,40 @@ function displayResult(result) {
 
 	var resultImage = $("<img src='" + questions[questionNumber].src + "'>");
 	$("#results").prepend(resultImage);
+	timeout = false;
 
 	//Add question number
 	questionNumber += 1; 
 	//Display Next Question
 	if (questionNumber < questions.length) {
-		setTimeout(function() { displayQuestion(questionNumber) },5000)
-	} 
+		setTimeout(function() { displayQuestion(questionNumber) },1000)
+	} else {
+
+		
+	//Show final result
+	var finalResult = function() {
+	$("#questions").removeClass("flipfront");
+	$("#results").removeClass("flipback");
+
+	$("h2").text("Your Result!");
+	$("form").append("<h4>Questions Correct: " + RightCount + "</h4>");
+	$("form").append("<h4>Questions Wrong: " + WrongCount + "</h4>");
+	var restartButton = $("<button onclick='restart()'>");
+	restartButton.html("Restart");
+	$("form").append(restartButton);
+	}
+
+	setTimeout(finalResult,5000);
+
+	}
+}
+
+function restart() {
+	RightCount = 0 //Counts number of questions user gets correct
+	WrongCount = 0 //Counts number of questions user gets wrong
+	questionNumber = 0; //Holds current question
+
+	displayQuestion(questionNumber);
 }
 
 //Display question
@@ -132,7 +163,6 @@ function displayQuestion(currentQuestion) {
 		}
 
 	//Create form bottom
-
 	var formBottom = $("<div id='form-bottom'>");
 	$("form").append(formBottom);
 
@@ -147,6 +177,7 @@ function displayQuestion(currentQuestion) {
 		$("#counter").html("<h3>" + number + "</h3>");
 
 		if (number == 0) {
+			timeout = true;
 			clearTimeout(timer);
 			displayResult();
 		}
