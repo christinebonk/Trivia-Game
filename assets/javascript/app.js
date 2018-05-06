@@ -10,7 +10,7 @@ var number = 10;
 //My questions
 var questions = [
 	{
-	question: "In what year was Japan founded?",
+	question: "In which year was Japan founded?",
 	answers: {
 		a: "1200 CE",
 		b: "660 BC",
@@ -103,23 +103,29 @@ function displayResult(result) {
 
 //Display question
 function displayQuestion(currentQuestion) {
+	//Display progress
+	displayProgress();
+	//reset count to 10
 	number = 10;
 	$("#counter").html("<h3>" + number + "</h3>");
+
 	//Flip to Question
 	$("#questions").removeClass("flipfront");
 	$("#results").removeClass("flipback");
 
+	//Display Question
 	$("h2").text(questions[currentQuestion].question);
 
-	
+	//Display Choices
 	for(letter in questions[currentQuestion].answers) {
 		$("form").append("<label><input type='radio' name='questions' value=" + letter + ">" + questions[currentQuestion].answers[letter] + "</label>");
 		}
 
-	$("form").prepend("<input id='submit' type='submit' value='Submit'>");
+	//Display Submit
+	$("form").append("<input id='submit' type='submit' value='Submit'>");
 
 	//Timeout
-	timer = setInterval(decrement,1000);
+	// timer = setInterval(decrement,1000);
 
 	function decrement() {
 		number--;
@@ -160,12 +166,21 @@ $("form").on("click", "#submit", function() {
 
 //Progress bar
 function displayProgress() {
+	$("footer").empty();
+
 	for (i=0;i<questions.length;i++) {
-		$("footer").append("<div class='ball'>");
+
+		if (i === questionNumber) {
+			$("footer").append("<div class='ball ball-active'>");
+		} else if (i < questionNumber) {
+			$("footer").append("<div class='ball ball-past'>");
+		} else {
+			$("footer").append("<div class='ball'>");
+		}
 	}
 }
 
-displayProgress();
+
 
 //https://api.giphy.com/v1/gifs/search?q=spirited+away&api_key=9yB1iQE0uPH4SpZ4Cf7rnaiWj2SGJKz7
 
