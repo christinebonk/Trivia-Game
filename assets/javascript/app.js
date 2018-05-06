@@ -17,7 +17,8 @@ var questions = [
 		c: "448 CE",
 		d: "1360 BC"
 	},
-	correctAnswer: "b"
+	correctAnswer: "b",
+	src: "https://media.giphy.com/media/CRWdhM1XgJ7Pi/giphy.gif",
 	},
 
 	{
@@ -28,7 +29,8 @@ var questions = [
 		c: "Bicycles",
 		d: "Movie Theatres"
 	},
-	correctAnswer: "a"
+	correctAnswer: "a",
+	src: "https://media.giphy.com/media/CRWdhM1XgJ7Pi/giphy.gif",
 	},
 
 	{
@@ -39,7 +41,8 @@ var questions = [
 		c: "Origin of the Sun",
 		d: "Nine provinces"
 	},
-	correctAnswer: "c"
+	correctAnswer: "c",
+	src: "https://media.giphy.com/media/CRWdhM1XgJ7Pi/giphy.gif",
 	},
 
 	{
@@ -50,7 +53,8 @@ var questions = [
 		c: "Frozen",
 		d: "Your Name"
 	},
-	correctAnswer: "a"
+	correctAnswer: "a",
+	src: "https://media.giphy.com/media/CRWdhM1XgJ7Pi/giphy.gif",
 	},
 
 	{
@@ -61,7 +65,8 @@ var questions = [
 		c: "77",
 		d: "278"
 	},
-	correctAnswer: "d"
+	correctAnswer: "d",
+	src: "https://media.giphy.com/media/CRWdhM1XgJ7Pi/giphy.gif",
 	},
 
 	{
@@ -72,7 +77,8 @@ var questions = [
 		c: "Jujutsu",
 		d: "Sumo"
 	},
-	correctAnswer: "d"
+	correctAnswer: "d",
+	src: "https://media.giphy.com/media/CRWdhM1XgJ7Pi/giphy.gif",
 	}
 ]
 
@@ -88,10 +94,13 @@ function displayResult(result) {
 
 	//Display result
 	if(result) {
-		$("#results").html("Right");
+		$("#results").append("That's correct!");
 	} else if(!result) {
 		$("#results").html("Wrong");
 	}
+
+	var resultImage = $("<img src='" + questions[questionNumber].src + "'>");
+	$("#results").prepend(resultImage);
 
 	//Add question number
 	questionNumber += 1; 
@@ -118,14 +127,19 @@ function displayQuestion(currentQuestion) {
 
 	//Display Choices
 	for(letter in questions[currentQuestion].answers) {
-		$("form").append("<label><input type='radio' name='questions' value=" + letter + ">" + questions[currentQuestion].answers[letter] + "</label>");
+		$("form").prepend("<label><input type='radio' name='questions' value=" + letter + "><span>" + questions[currentQuestion].answers[letter] + "</span></label>");
 		}
 
+	//Create form bottom
+
+	var formBottom = $("<div id='form-bottom'>");
+	$("form").append(formBottom);
+
 	//Display Submit
-	$("form").append("<input id='submit' type='submit' value='Submit'>");
+	$("#form-bottom").html("<input id='submit' type='submit' value='Submit'>");
 
 	//Timeout
-	// timer = setInterval(decrement,1000);
+	timer = setInterval(decrement,1000);
 
 	function decrement() {
 		number--;

@@ -6,14 +6,17 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 html {
 	font-family: 'Saira', sans-serif;
-	background: url(../images/arches.png);
-
-
 }
+
+img {
+	max-width: 100%;
+}
+
+
 
 h1 {
 	vertical-align: text-top;
-	font-size: 50px;
+	font-size: 60px;
 	padding-left: 50px;
 	margin-bottom: 0;
 }
@@ -83,18 +86,46 @@ form {
 	align-items: flex-start;
 }
 
-label {
-	padding: 10px;
+span {
+	padding: 30px;
+	color: white;
+	transition: color 0.3s;
 }
 
-label input[type="radio"] {
-	padding: 20px;
-	color: green;
+span:hover {
+	color: #0052cc;
 }
+
+label {
+	padding: 15px;
+}
+
+
+input[type="submit"] {
+	background: white;
+	border: 2px solid #0052cc;
+	color: blue;
+	font-size: 30px;
+	padding: 10px 20px;
+	transition: all 0.3s;
+}
+
+#form-bottom {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+}
+
+input[type="submit"]:hover {
+	background: blue;
+	border: 2px solid white;
+	color: white;
+}
+
 
 /*Flip Cards*/
 
-	#container {
+	#contained {
 		height: 400px;
 		width: 50%;
 		position: relative;
@@ -110,7 +141,7 @@ label input[type="radio"] {
 		position: absolute;
 		backface-visibility: hidden;
 		transition: transform 1s;
-		padding: 20px;
+		padding: 40px 100px;
 		text-align: center;
 	}
 
