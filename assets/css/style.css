@@ -6,6 +6,11 @@ html{line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}bo
 
 html {
 	font-family: 'Saira', sans-serif;
+	background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url(../images/background.png) ;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 100vh;
 }
 
 img {
@@ -18,6 +23,7 @@ h1 {
 	font-size: 60px;
 	padding-left: 50px;
 	margin-bottom: 0;
+	color: white;
 }
 
 main {
@@ -29,6 +35,22 @@ h4 {
 	color: white;
 	font-size: 30px;
 	margin: 10px 0px;
+	text-align: center;
+}
+
+button {
+	background: white;
+	border: 2px solid #0052cc;
+	color: blue;
+	font-size: 30px;
+	padding: 10px 20px;
+	transition: all 0.3s;
+}
+
+button:hover {
+	background: blue;
+	border: 2px solid white;
+	color: white;
 }
 
 /*Footer*/
@@ -40,8 +62,8 @@ footer {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	height: 10%;
-	background: #ffcc00;
+	height: 15%;
+	background: black;
 }
 .ball {
 	width: 20px;
@@ -72,7 +94,8 @@ footer {
 
 h3 {
 	font-size: 150px;
-	color: #0052cc;
+	color: blue;
+	text-shadow: 5px 5px white;
 	font-family: 'Aldrich', sans-serif;
 }
 
@@ -157,6 +180,12 @@ input[type="submit"]:hover {
 	.flip-card-back {
 		background-color: #0052cc;
 		transform: rotateY(180deg);
+		display: flex;
+		justify-content: center;
+		color: white;
+		font-size: 20px;
+		align-items: center;
+		flex-direction: column;
 	}
 
 	.flipfront {
@@ -166,3 +195,47 @@ input[type="submit"]:hover {
 	.flipback {
 		transform: rotateY(0deg);
 	}
+
+/*Media Queries*/
+
+@media only screen and (max-width: 950px) {
+	input[type="submit"] {
+		font-size: 20px;
+	}
+
+	.flip-card-front, .flip-card-back {
+		padding: 30px;
+	}
+
+}
+
+@media only screen and (max-width: 700px) {
+	h1 {
+		font-size: 40px;
+	}
+	main {
+		flex-wrap: wrap;
+	}
+
+	#counter {
+		width: 100%;
+		height: 100%;
+	}
+
+	#counter h3 {
+		font-size: 40px;
+		text-shadow: 1px 1px white;
+		margin: 0;
+	}
+
+	#contained {
+		width: 100%;
+		margin: 10px;
+	}
+
+	.ball {
+	width: 20px;
+	height: 20px;
+	margin: 30px 10px;
+}
+}

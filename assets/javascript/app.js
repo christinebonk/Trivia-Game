@@ -19,6 +19,7 @@ var questions = [
 		d: "1360 BC"
 	},
 	correctAnswer: "b",
+	response: "660 BC.",
 	src: "https://media.giphy.com/media/yKRLHtkoV95Wo/giphy.gif",
 	},
 
@@ -31,6 +32,7 @@ var questions = [
 		d: "Movie Theatres"
 	},
 	correctAnswer: "a",
+	response: "Vending Machines.",
 	src: "https://media.giphy.com/media/7jUBXWg4BoKhq/giphy.gif",
 	},
 
@@ -43,6 +45,7 @@ var questions = [
 		d: "Nine provinces"
 	},
 	correctAnswer: "c",
+	response: "Origin of the Sun.",
 	src: "https://media.giphy.com/media/g5dFgukxoiBDG/giphy.gif",
 	},
 
@@ -55,18 +58,20 @@ var questions = [
 		d: "Your Name"
 	},
 	correctAnswer: "a",
+	response: "Spirited Away.",
 	src: "https://media.giphy.com/media/CRWdhM1XgJ7Pi/giphy.gif",
 	},
 
 	{
 	question: "How many subway stations are in Tokyo?",
 	answers: {
-		a: "1000",
+		a: "540",
 		b: "154",
 		c: "77",
 		d: "278"
 	},
 	correctAnswer: "d",
+	response: "278.",
 	src: "https://media.giphy.com/media/TCoS2HmNFKZkQ/giphy.gif",
 	},
 
@@ -79,6 +84,7 @@ var questions = [
 		d: "Sumo"
 	},
 	correctAnswer: "d",
+	response: "Sumo.",
 	src: "https://media.giphy.com/media/exXLWM1SIhAA0/giphy.gif",
 	}
 ]
@@ -97,13 +103,17 @@ function displayResult(result) {
 	//Display result
 	if(timeout) {
 		WrongCount++;
-		$("#results").append("Time's Up");
+
+		$("#results").append("Time's Up! Sorry the right answer is " + questions[questionNumber].response);
 	} else if(result) {
+
 		$("#results").append("That's correct!");
 	} else if(!result) {
-		$("#results").html("Wrong");
+
+		$("#results").append("Wrong! Sorry the right answer is " + questions[questionNumber].response);
 	}
 
+	//Display gif
 	var resultImage = $("<img src='" + questions[questionNumber].src + "'>");
 	$("#results").prepend(resultImage);
 	timeout = false;
@@ -112,7 +122,7 @@ function displayResult(result) {
 	questionNumber += 1; 
 	//Display Next Question
 	if (questionNumber < questions.length) {
-		setTimeout(function() { displayQuestion(questionNumber) },1000)
+		setTimeout(function() { displayQuestion(questionNumber) },5000)
 	} else {
 
 		
@@ -122,8 +132,8 @@ function displayResult(result) {
 	$("#results").removeClass("flipback");
 
 	$("h2").text("Your Result!");
-	$("form").append("<h4>Questions Correct: " + RightCount + "</h4>");
-	$("form").append("<h4>Questions Wrong: " + WrongCount + "</h4>");
+	$("form").append("<h4>Correct: " + RightCount + "</h4>");
+	$("form").append("<h4>Wrong: " + WrongCount + "</h4>");
 	var restartButton = $("<button onclick='restart()'>");
 	restartButton.html("Restart");
 	$("form").append(restartButton);
@@ -228,5 +238,4 @@ function displayProgress() {
 
 
 
-//https://api.giphy.com/v1/gifs/search?q=spirited+away&api_key=9yB1iQE0uPH4SpZ4Cf7rnaiWj2SGJKz7
 
