@@ -103,7 +103,8 @@ function displayResult(result) {
 
 //Display question
 function displayQuestion(currentQuestion) {
-
+	number = 10;
+	$("#counter").html("<h3>" + number + "</h3>");
 	//Flip to Question
 	$("#questions").removeClass("flipfront");
 	$("#results").removeClass("flipback");
@@ -122,8 +123,7 @@ function displayQuestion(currentQuestion) {
 
 	function decrement() {
 		number--;
-		console.log(number)
-		$("#counter").html(number);
+		$("#counter").html("<h3>" + number + "</h3>");
 
 		if (number == 0) {
 			clearTimeout(timer);
