@@ -18,7 +18,7 @@ var questions = [
 		d: "1360 BC"
 	},
 	correctAnswer: "b",
-	src: "https://media.giphy.com/media/CRWdhM1XgJ7Pi/giphy.gif",
+	src: "https://media.giphy.com/media/yKRLHtkoV95Wo/giphy.gif",
 	},
 
 	{
@@ -30,7 +30,7 @@ var questions = [
 		d: "Movie Theatres"
 	},
 	correctAnswer: "a",
-	src: "https://media.giphy.com/media/CRWdhM1XgJ7Pi/giphy.gif",
+	src: "https://media.giphy.com/media/7jUBXWg4BoKhq/giphy.gif",
 	},
 
 	{
@@ -42,7 +42,7 @@ var questions = [
 		d: "Nine provinces"
 	},
 	correctAnswer: "c",
-	src: "https://media.giphy.com/media/CRWdhM1XgJ7Pi/giphy.gif",
+	src: "https://media.giphy.com/media/g5dFgukxoiBDG/giphy.gif",
 	},
 
 	{
@@ -66,7 +66,7 @@ var questions = [
 		d: "278"
 	},
 	correctAnswer: "d",
-	src: "https://media.giphy.com/media/CRWdhM1XgJ7Pi/giphy.gif",
+	src: "https://media.giphy.com/media/TCoS2HmNFKZkQ/giphy.gif",
 	},
 
 	{
@@ -78,7 +78,7 @@ var questions = [
 		d: "Sumo"
 	},
 	correctAnswer: "d",
-	src: "https://media.giphy.com/media/CRWdhM1XgJ7Pi/giphy.gif",
+	src: "https://media.giphy.com/media/exXLWM1SIhAA0/giphy.gif",
 	}
 ]
 
@@ -91,6 +91,7 @@ function displayResult(result) {
 
 	//Empty form
 	$("form").empty();
+	$("#results").empty();
 
 	//Display result
 	if(result) {
